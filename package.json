@@ -9,6 +9,7 @@
   "dependencies": {
     "babel-runtime": "^6.0.0",
     "github-api": "^2.3.0",
+    "lodash": "^4.15.0",
     "octicons": "^4.3.0",
     "primer-css": "^4.1.0",
     "superagent": "^2.2.0",

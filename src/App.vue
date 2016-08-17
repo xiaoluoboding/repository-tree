@@ -4,8 +4,6 @@ import Main from './components/Main.vue'
 import store from './vuex/store'
 
 export default {
-  name: 'App',
-
   store,
 
   components: {
