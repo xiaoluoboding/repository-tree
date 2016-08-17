@@ -1,27 +1,43 @@
 <script>
-import { setFullRepoName } from '../vuex/actions'
+import { setRepoLink, setRepoTree } from '../vuex/actions'
+import GitHub from 'github-api'
+const gh = new GitHub()
 export default {
-	name: 'NavBar',
-
 	vuex: {
     getters: {
-      fullRepoName: ({ main }) => main.fullRepoName
+      repoLink: ({ github }) => github.repoLink,
+      siteLink: ({ github }) => github.siteLink,
+			userName: ({ github }) => github.userName,
+			repoName: ({ github }) => github.repoName
     },
 		actions: {
-			setFullRepoName
+			setRepoLink,
+			setRepoTree
 		}
 	},
-
   computed: {
     inputValue: {
       get () {
-        return this.fullRepoName
+        return this.repoLink
       },
       set (val) {
-        this.setFullRepoName(val)
+				if (val.includes(this.siteLink)) {
+					this.setRepoLink(val)
+				}
       }
     }
-  }
+  },
+	methods: {
+		getTree() {
+			const self = this
+	    let repo = gh.getRepo(this.userName,this.repoName)
+	    repo.getTree('master?recursive=1', function(err, data) {
+	      if (err) { console.dir(err.status) }
+	      // console.log(data.tree);
+	      self.setRepoTree(data.tree)
+	    })
+		}
+	}
 }
 </script>
 
@@ -32,12 +48,12 @@ export default {
 				<a href="#!"><span class="mega-octicon octicon-mark-github"></span></a>
 			</div>
 			<form>
-				<label for="fullRepoName">Full Repo Name:</label>
-			  <input id="fullRepoName" class="form-control" type="text"
-			  	placeholder="xiaoluoboding/repository-tree"
+				<label for="repoLink">Repo Link:</label>
+			  <input id="repoLink" class="form-control" type="text"
+			  	placeholder="https://github.com/xiaoluoboding/repository-tree"
 			  	v-model="inputValue">
 			  <span class="input-group-button">
-				  <button type="button" class="btn btn-primary">Generate</button>
+				  <button type="button" class="btn btn-primary" @click="getTree">Generate</button>
 			  </span>
 			</form>
 		</div>
@@ -56,7 +72,7 @@ export default {
 		margin-right: 10px;
 	}
 
-	#fullRepoName {
+	#repoLink {
 		width: 480px;
 	}
 </style>
