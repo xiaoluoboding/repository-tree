@@ -20,7 +20,7 @@ export default {
   	<h1 class="public">
   		<span class="octicon octicon-repo"></span>
 		  <span class="author" itemprop="author">
-		  	<a href="{{ githubLink+userName }}" rel="author" target="_blank">{{ userName }}</a>
+		  	<a href="{{ siteLink+userName }}" rel="author" target="_blank">{{ userName }}</a>
 		  </span>
 		  <span class="path-divider">/</span>
 		  <strong itemprop="name">
