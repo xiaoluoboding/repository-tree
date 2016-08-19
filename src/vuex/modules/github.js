@@ -12,7 +12,7 @@ import treeify from 'treeify'
 // initial state
 const state = {
   siteLink: 'https://github.com/',
-  repoLink: '',
+  repoLink: 'https://github.com/xiaoluoboding/vue-stroll',
   userName: '',
   repoName: '',
   repoTree: []
@@ -29,46 +29,48 @@ const mutations = {
     state.repoName = repoName
   },
   [SET_REPOTREE](state, repoTree) {
-    let rootTree = []
-    // set rootBlob
-    let rootBlobArray = filter(repoTree, function(obj) {
-      return !obj.path.includes('/') && obj.type == 'blob'
-    })
-    let rootBlob = {}
-    for (let i in rootBlobArray) {
-      rootBlob[rootBlobArray[i].path] = null
-    }
-    // console.dir(rootBlob)
+    let perttyTree = {}
 
-    let rootTreeArray = filter(repoTree, function(obj) {
-      return obj.type == 'tree'
-    })
-
-    let treeArray = {}
-    for (var i in rootTreeArray) {
+    // set rootTree
+    let rootTreeArray = filter(repoTree, (obj) => !obj.path.includes('/') && obj.type == 'tree')
+    let rootTree = {}
+    for (let i in rootTreeArray) {
       if (rootTreeArray.hasOwnProperty(i)) {
-
+        rootTree[rootTreeArray[i].path] = []
       }
     }
 
-    let childBlobArray = filter(repoTree, function(obj) {
-      return obj.path.includes('/') && obj.type == 'blob'
-    })
+    // console.log(rootTree);
 
-    let childArray = {}
+    // set rootBlob
+    let rootBlobArray = filter(repoTree, (obj) => !obj.path.includes('/') && obj.type == 'blob')
+    let rootBlob = {}
+    for (let i in rootBlobArray) {
+      if (rootBlobArray.hasOwnProperty(i)) {
+        rootBlob[rootBlobArray[i].path] = null
+      }
+    }
+
+    // console.log(rootBlob);
+
+    // iterate childBlob
+    let childBlobArray = filter(repoTree, (obj) => obj.path.includes('/') && obj.type == 'blob')
     for (var i in childBlobArray) {
       if (childBlobArray.hasOwnProperty(i)) {
         let treeParent = childBlobArray[i].path.split('\/').shift()
         let treeChild = childBlobArray[i].path.split('\/').pop()
-        console.log(childBlobArray[i].path)
-        console.log(treeChild)
-        childArray[treeChild] = null
+        for (var i in rootTreeArray) {
+          if (rootTreeArray.hasOwnProperty(i) && rootTreeArray[i].path == treeParent) {
+            rootTree[treeParent][treeChild] = null
+          }
+        }
       }
     }
-    console.log(childArray)
-    // set rootTree
-    rootTree.push(rootBlob)
-    state.repoTree = treeify.asTree(rootTree)
+
+    // set perttyTree
+    perttyTree = _.merge(rootTree, rootBlob)
+    console.log(perttyTree);
+    state.repoTree = treeify.asTree(perttyTree)
   }
 }
 

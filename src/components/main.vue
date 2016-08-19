@@ -49,18 +49,4 @@ export default {
 	  line-height: 26px;
 	  color: #666;
 	}
-
-	.boxed-header {
-	  position: relative;
-	  padding: 10px;
-	  margin-bottom: -1px;
-	  font-size: 13px;
-	  line-height: 20px;
-	  color: #68777d;
-	  background-color: #f2f9fc;
-	  border: 1px solid #c9e6f2;
-	  border-radius: 3px;
-	  border-bottom-right-radius: 0;
-	  border-bottom-left-radius: 0;
-	}
 </style>
