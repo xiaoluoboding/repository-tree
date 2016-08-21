@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-      copyTooltip: 'Copy repository tree to clipboard',
+      copyTooltip: 'Copy repository tree to clipboard'
     }
   },
   vuex: {
