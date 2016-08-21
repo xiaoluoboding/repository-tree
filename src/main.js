@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import VueClipboard from 'vue-clipboard'
 import Router from './router'
 import App from './App.vue'
 
 Vue.use(VueRouter)
+Vue.use(VueClipboard)
 
 // Set up a new router
 const router = new VueRouter()
