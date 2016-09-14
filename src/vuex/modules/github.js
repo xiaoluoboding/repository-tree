@@ -10,7 +10,7 @@ import treeify from 'treeify'
 // initial state
 const state = {
   siteLink: 'https://github.com/',
-  repoLink: 'https://github.com/xiaoluoboding/vue-demo-collection',
+  repoLink: 'https://github.com/xiaoluoboding/repository-tree',
   userName: '',
   repoName: '',
   repoTree: [],

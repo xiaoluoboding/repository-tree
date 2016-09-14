@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-      copyTooltip: 'Copy repository tree to clipboard'
+      copyTooltip: 'Copy repository tree view to clipboard'
     }
   },
   vuex: {
@@ -18,7 +18,7 @@ export default {
   watch: {
     repoTree(newVal, oldVal) {
       if(newVal) {
-        this.copyTooltip = 'Copy repository tree to clipboard'
+        this.copyTooltip = 'Copy repository tree view to clipboard'
       }
     }
   }

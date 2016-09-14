@@ -1,18 +1,16 @@
-# repository-tree
+# Repository Tree
 
-> Pretty display directory tree view of a GitHub repository.
+> Pretty display directory tree view of a GitHub repository. [Demo](https://xiaoluoboding.github.io/repository-tree/)
 
-## Build Setup
+## Preview
 
-``` bash
-# install dependencies
-npm install
+![img](dist/preview.png)
 
-# serve with hot reload at localhost:8080
-npm run dev
+## Feature
 
-# build for production with minification
-npm run build
-```
+- [x] Pretty display repository tree view
+- [x] Copy repository tree view to clipboard
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## License
+
+MIT
