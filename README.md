@@ -1,5 +1,9 @@
 # Repository Tree
 
+[![Travis Build Status](https://travis-ci.org/xiaoluoboding/repository-tree.svg?branch=master)](https://travis-ci.org/xiaoluoboding/repository-tree.svg?branch=master)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/xiaoluoboding/repository-tree/master/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/xiaoluoboding/repository-tree.svg?style=flat-square)](https://github.com/xiaoluoboding/vue-repository-tree/stargazers)
+
 > Pretty display directory tree view of a GitHub repository. [Demo](https://xiaoluoboding.github.io/repository-tree/)
 
 ## Preview
