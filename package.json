@@ -1,5 +1,6 @@
 {
   "name": "repository-tree",
+  "version": "0.1.0",
   "description": "Pretty display directory tree view of a GitHub repository.",
   "author": "xiaoluoboding <xiaoluoboding@gmail.com>",
   "scripts": {

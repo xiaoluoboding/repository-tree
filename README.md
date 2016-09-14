@@ -10,6 +10,7 @@
 
 - [x] Pretty display repository tree view
 - [x] Copy repository tree view to clipboard
+- [ ] Support choose other repository branches
 
 ## Pretty display
 
