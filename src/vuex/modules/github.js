@@ -69,9 +69,9 @@ const mutations = {
       return _.merge(result, {[value]: key})
     }, {});
 
-    let perttyTree = _.merge(rootTree, rootBlob)
+    let prettyTree = _.merge(rootTree, rootBlob)
 
-    state.repoTree = treeify.asTree(perttyTree)
+    state.repoTree = treeify.asTree(prettyTree)
   }
 }
 
